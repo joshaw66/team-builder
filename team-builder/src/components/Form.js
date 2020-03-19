@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const MemberForm = props => {
   const [member, setMember] = useState ({
-    id: Date.now(),
+    
     name: "",
     email: "",
     role: ""
@@ -24,7 +24,7 @@ const MemberForm = props => {
   return (
     <div>
       <form onSubmit={submitHandler}>
-        <label htmlFor="name">Members' Name</label>
+        <label htmlFor="name">Member Name</label>
         <br />
         <input
           type="text"
@@ -36,7 +36,7 @@ const MemberForm = props => {
           required
         />
         <br />
-        <label htmlFor="email">Members' Email</label>
+        <label htmlFor="email">Member Email</label>
         <br />
         <input
           type="email"
@@ -48,7 +48,7 @@ const MemberForm = props => {
           required
         />
         <br />
-        <label htmlFor="role">Members' Role</label>
+        <label htmlFor="role">Member Role</label>
         <br />
         <select
           name="role"
