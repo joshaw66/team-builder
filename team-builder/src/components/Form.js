@@ -5,10 +5,70 @@ const MemberForm = props => {
     id: Date.now(),
     name: "",
     email: "",
-    position: ""
+    role: ""
   });
 
+  const changeHandler = event => {
+    setMember({
+      ...member,
+      [event.target.name]: event.target.value
+    });
+  };
 
-}
+  const submitHandler = event => {
+    event.preventDefault();
+    props.addNewMember(member);
+    setMember({ name: "", email: "", role: "" });
+  };
+
+  return (
+    <div>
+      <form onSubmit={submitHandler}>
+        <label htmlFor="name">Members' Name</label>
+        <br />
+        <input
+          type="text"
+          id="name"
+          placeholder="First and Last Name"
+          name="name"
+          value={member.name}
+          onChange={changeHandler}
+          required
+        />
+        <br />
+        <label htmlFor="email">Members' Email</label>
+        <br />
+        <input
+          type="email"
+          id="email"
+          placeholder="Email Address"
+          name="email"
+          value={member.email}
+          onChange={changeHandler}
+          required
+        />
+        <br />
+        <label htmlFor="role">Members' Role</label>
+        <br />
+        <select
+          name="role"
+          id="role"
+          value={member.role}
+          onChange={changeHandler}
+        >
+          <option value="Junior">Junior Engineer</option>
+          <option value="Senior">Senior Engineer</option>
+          <option value="Frontend">Frontend Designer</option>
+          <option value="BackendDesigner">Backend Designer</option>
+        </select>
+        <br />
+        <label htmlFor="addMember">Add Member</label>
+        <button type="submit" id="addMember">
+          Submit
+        </button>
+      </form>
+    </div>
+  );
+};
 
 export default MemberForm;
