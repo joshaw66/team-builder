@@ -1,20 +1,15 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
+
 function App() {
-  return (
-    <div className="App">
-      <form>
-        <input
-          id='crazyman'
-          placeholder='Service Worker'
-          name='fname'
-          type='text'
-        />
-      </form>
-    </div>
-  );
+  const [team, setTeam] = useState([
+    {
+      name: "",
+      email: "", 
+      job: "",
+    }
+  ]);
 }
 
 export default App;
